@@ -1,0 +1,31 @@
+  extends layout
+
+block content
+  .row
+    div(class="col-sm-12",style="padding:20px;")
+    .col-sm-12
+      a: h2 Employee Data Table
+      p Dream Cloud Software LTD.
+    .col-sm-12.table-responsive
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th ID
+            th Name
+            th Date Of Birth
+            th Profession
+            th Country
+        tbody
+          each person in empData
+            tr
+              td.danger.col-sm-1 #{person.Id}
+              td= person.name
+              td= person.birthDate
+              td= person.profession
+              td= person.country
+td= person.birthDate
+  td= person.profession
+  td= person.country
+td= person.birthDate
+  td= person.profession
+  td= person.country

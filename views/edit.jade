@@ -1,0 +1,13 @@
+extends layout
+block content
+  div(class="col-sm-12",style="padding:40px;")
+  form.form(method="POST",action="/admin/rooms/edit/#{room.id}")
+    .form-group.col-sm-5 
+      label.form-label(for="formName") Name
+      input#formName.form-control(type="text",name="name",value="#{room.name}" ,placeholder="Enter a name title")
+      p.help-block
+        small Give your chat room a sensible name
+      .nav.nav-inline
+        button.btn.btn-primary.btn-sm(type="submit",value="Submit") Save edit
+        a(style="padding:3px;")
+        a.btn.btn-default.btn-sm(href="/admin/rooms") Cancel

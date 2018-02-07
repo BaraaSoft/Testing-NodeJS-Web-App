@@ -1,0 +1,69 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title= title
+    //link(rel='stylesheet', href='/css/bootstrap.min.css')
+    //link(rel='stylesheet', href='/assets/style.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/octicons/3.1.0/octicons.min.css')
+    //if lt IE 9
+      //script(src='https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js')
+      //script(src='https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js')
+  
+  body
+    nav.row.navbar.navbar-inverse(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')
+        // Collect the nav links, forms, and other content for toggling
+        #navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='/home') Home
+            li
+              a(href='/admin/rooms') Chat Rooms
+            li
+              a(href='#') Users 
+            li
+              a(href='/admin/vr') 2D
+            li
+              a(href='/admin/3d') 3D 
+          
+        // /.navbar-collapse
+        // /.container-fluid
+    .container
+      .row.main-content
+        .col-sm-12
+          h1 Chat Rooms:
+        .col-sm-12  
+          a.btn.btn-primary(href="/admin/add") Create New Chat Room
+          p(style="padding:5px;")
+        .col-sm-12  
+          .row
+            .col-sm-6
+              table.table.table-striped.table-hover
+                tbody
+                  tr.info
+                    th 
+                    th Name
+                    th 
+                    th(style="text-align: center;") ID
+                  each room in roomData
+                    tr
+                      td.success
+                        a(href="/admin/rooms/delete/#{room.id}"): span.glyphicon.glyphicon-remove
+                      td.success=room.name
+                      td.success
+                        a(href="/admin/rooms/edit/#{room.id}"): span.glyphicon.glyphicon-pencil
+                      td=room.id
+        script(src='https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js')
+        script(src='https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js')
+      
